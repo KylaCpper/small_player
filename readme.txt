@@ -4,7 +4,9 @@
 
 godot版本2.1.4
 
-下载下来解压后用godot打开
+省略了 纹理，动画字体等assets
+
+完整项目在压缩包里下载后解压用godot打开
 
 taptap：https://www.taptap.com/app/78576
 
