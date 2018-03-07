@@ -1,0 +1,230 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://assets/rpg indoor tileset expansion 1 trans (1).png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 15.7609 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2.99831, 4.32539 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10.606 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 112.935, 157.636 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 36, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.77544, 0, 0, 0.386272, 0.569927, 9.29743 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
+
+transform/pos = Vector2( 0.569927, 9.29743 )
+transform/scale = Vector2( 1.77544, 0.386272 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 250.464, 191.361 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 32, 6, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite4"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1.552, 0.21463, 9.39511 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite4/StaticBody2D"]
+
+transform/pos = Vector2( 0.21463, 9.39511 )
+transform/scale = Vector2( 1, 1.552 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 166.603, 183.037 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 15, 32, 8, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite5"]
+
+transform/pos = Vector2( 0.237823, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 0.313702, 0, 0, 0.617886, 0.389297, 10.0011 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite5/StaticBody2D"]
+
+transform/pos = Vector2( 0.389297, 10.0011 )
+transform/scale = Vector2( 0.313702, 0.617886 )
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite6" type="Sprite" parent="."]
+
+transform/pos = Vector2( 139.307, 224.653 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 65, 36, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite6"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1.7496, 0, 0, 0.606917, 0.584885, 9.14885 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite6/StaticBody2D"]
+
+transform/pos = Vector2( 0.584885, 9.14885 )
+transform/scale = Vector2( 1.7496, 0.606917 )
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite10" type="Sprite" parent="."]
+
+transform/pos = Vector2( 303.405, 191.658 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 169, 32, 6, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite10"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 0.247658, 0, 0, 1.54212, 0.13697, 0.212204 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite10/StaticBody2D"]
+
+transform/pos = Vector2( 0.13697, 0.212204 )
+transform/scale = Vector2( 0.247658, 1.54212 )
+shape = SubResource( 8 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite 2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 310.952, 105.142 )
+transform/scale = Vector2( -0.647687, 0.718096 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 85, 0, 16, 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite14" type="Sprite" parent="."]
+
+transform/pos = Vector2( 336.046, 112.312 )
+transform/scale = Vector2( -0.647687, 0.718096 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 85, 16, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite14"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 9 )
+shapes/0/transform = Matrix32( 0.789533, 0, 0, 0.751115, 0.0999146, -1.07097 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite14/StaticBody2D"]
+
+transform/pos = Vector2( 0.0999146, -1.07097 )
+transform/scale = Vector2( 0.789533, 0.751115 )
+shape = SubResource( 9 )
+trigger = false
+_update_shape_index = 0
+
+

@@ -1,0 +1,134 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scene/script/set.gd" type="Script" id=1]
+[ext_resource path="res://font/font.fnt" type="BitmapFont" id=2]
+
+[node name="set" type="Panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -10.0
+margin/right = 400.0
+margin/bottom = 290.0
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sound" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="sound"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 95.0
+margin/top = 100.0
+margin/right = 180.0
+margin/bottom = 125.0
+custom_fonts/font = ExtResource( 2 )
+text = "sound："
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="scroll bar" type="HScrollBar" parent="sound"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 165.0
+margin/top = 105.0
+margin/right = 250.0
+margin/bottom = 120.0
+range/min = 0.0
+range/max = 100.0
+range/step = 0.0
+range/page = 0.0
+range/value = 1.0
+range/exp_edit = false
+range/rounded = false
+custom_step = -1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="edit" type="LineEdit" parent="sound"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 255.0
+margin/top = 100.0
+margin/right = 313.0
+margin/bottom = 124.0
+text = "50"
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="save" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 125.0
+margin/top = 10.0
+margin/right = 190.0
+margin/bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "save"
+flat = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="close" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 205.0
+margin/top = 10.0
+margin/right = 270.0
+margin/bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "close"
+flat = false
+
+

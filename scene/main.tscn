@@ -1,0 +1,3249 @@
+[gd_scene load_steps=87 format=1]
+
+[ext_resource path="res://scene/move/move.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/keyboard/move_default.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/keyboard/move_middle.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/keyboard/key_shift.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/keyboard/key_shift_press.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/keyboard/key_i.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/keyboard/key_i_press.png" type="Texture" id=7]
+[ext_resource path="res://scene/main/monsters.gd" type="Script" id=8]
+[ext_resource path="res://scene/script/boss.gd" type="Script" id=9]
+[ext_resource path="res://scene/player.gd" type="Script" id=10]
+[ext_resource path="res://assets/player/Fumiko.png" type="Texture" id=11]
+[ext_resource path="res://assets/item/items_by_reidyaro-d47dn3h_0_3.png" type="Texture" id=12]
+[ext_resource path="res://scene/ani/player_move_down.tres" type="Animation" id=13]
+[ext_resource path="res://scene/ani/player_move_left.anm" type="Animation" id=14]
+[ext_resource path="res://scene/ani/player_move_right.anm" type="Animation" id=15]
+[ext_resource path="res://scene/ani/player_move_up.anm" type="Animation" id=16]
+[ext_resource path="res://scene/ani/player_run_down.anm" type="Animation" id=17]
+[ext_resource path="res://scene/ani/player_run_left.anm" type="Animation" id=18]
+[ext_resource path="res://scene/ani/player_run_up.anm" type="Animation" id=19]
+[ext_resource path="res://scene/ani/player_hurt_down.anm" type="Animation" id=20]
+[ext_resource path="res://scene/ani/player_hurt_left.anm" type="Animation" id=21]
+[ext_resource path="res://scene/ani/player_hurt_right.anm" type="Animation" id=22]
+[ext_resource path="res://scene/ani/player_hurt_up.anm" type="Animation" id=23]
+[ext_resource path="res://tiles/tiles.tres" type="TileSet" id=24]
+[ext_resource path="res://tiles/tiles1.tres" type="TileSet" id=25]
+[ext_resource path="res://assets/snow-expansion.png" type="Texture" id=26]
+[ext_resource path="res://scene/script/door.gd" type="Script" id=27]
+[ext_resource path="res://assets/img/building/door.png" type="Texture" id=28]
+[ext_resource path="res://scene/script/information.gd" type="Script" id=29]
+[ext_resource path="res://font/font.fnt" type="BitmapFont" id=30]
+[ext_resource path="res://scene/script/option_button.gd" type="Script" id=31]
+[ext_resource path="res://scene/shop.gd" type="Script" id=32]
+[ext_resource path="res://scene/script/build_monster.gd" type="Script" id=33]
+[ext_resource path="res://scene/script/property_shop.gd" type="Script" id=34]
+[ext_resource path="res://scene/script/groceries_shop.gd" type="Script" id=35]
+[ext_resource path="res://scene/script/kill boss.gd" type="Script" id=36]
+[ext_resource path="res://scene/script/pop_windows.gd" type="Script" id=37]
+[ext_resource path="res://scene/build_monsters.gd" type="Script" id=38]
+[ext_resource path="res://scene/script/set.gd" type="Script" id=39]
+[ext_resource path="res://scene/script/save.gd" type="Script" id=40]
+[ext_resource path="res://scene/script/set_control.gd" type="Script" id=41]
+[ext_resource path="res://assets/img/keyboard/key_esc.png" type="Texture" id=42]
+[ext_resource path="res://assets/img/keyboard/key_esc_press.png" type="Texture" id=43]
+[ext_resource path="res://scene/sound.gd" type="Script" id=44]
+[ext_resource path="res://assets/sound/02 track 2.ogg" type="AudioStream" id=45]
+[ext_resource path="res://assets/sound/Item Shop.ogg" type="AudioStream" id=46]
+[ext_resource path="res://assets/sound/boss bg.ogg" type="AudioStream" id=47]
+[ext_resource path="res://assets/sound/wav/atk.wav" type="Sample" id=48]
+[ext_resource path="res://assets/sound/wav/ban.wav" type="Sample" id=49]
+[ext_resource path="res://assets/sound/wav/coin.wav" type="Sample" id=50]
+[ext_resource path="res://assets/sound/wav/cloth.wav" type="Sample" id=51]
+[ext_resource path="res://assets/sound/wav/door_close.wav" type="Sample" id=52]
+[ext_resource path="res://assets/sound/wav/door_open.wav" type="Sample" id=53]
+[ext_resource path="res://assets/sound/wav/bubble2.wav" type="Sample" id=54]
+[ext_resource path="res://assets/sound/wav/hurt monster.wav" type="Sample" id=55]
+[ext_resource path="res://assets/sound/wav/swing.wav" type="Sample" id=56]
+[ext_resource path="res://assets/sound/wav/swing3.wav" type="Sample" id=57]
+[ext_resource path="res://assets/sound/wav/chainmail2.wav" type="Sample" id=58]
+[ext_resource path="res://assets/sound/wav/lv_up.wav" type="Sample" id=59]
+[ext_resource path="res://assets/sound/wav/war step.wav" type="Sample" id=60]
+[ext_resource path="res://assets/sound/wav/chainmail1.wav" type="Sample" id=61]
+[ext_resource path="res://assets/sound/wav/uhurt1.wav" type="Sample" id=62]
+[ext_resource path="res://assets/sound/wav/uhurt0.wav" type="Sample" id=63]
+[ext_resource path="res://assets/sound/wav/bottle.wav" type="Sample" id=64]
+[ext_resource path="res://scene/script/light.gd" type="Script" id=65]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 15.0238
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 45, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14.2112, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=5]
+
+length = 0.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:region_rect")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": FloatArray( 1, 0, 0, 0 ),
+"update": 2,
+"values": [ Rect2( 72, 32, 22, 32 ), Rect2( 98, 32, 22, 32 ), Rect2( 120, 32, 22, 32 ), Rect2( 98, 32, 22, 32 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/arm:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -3, -9 ), Vector2( -3, -10 ), Vector2( -3, -9 ), Vector2( -3, -10 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/arm:transform/rot")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../sound/misc:play/play")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 2,
+"values": [ "run", "run" ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/arm:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3, -10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/arm:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body:region_rect")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Rect2( 4, 64, 15, 32 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ), Vector2( -6, -8 ), Vector2( 0, -8 ), Vector2( -6, -8 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../sound/misc:play/play")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "ban" ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/arm:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, -9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/arm:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body:region_rect")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Rect2( 4, 96, 15, 32 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ), Vector2( -6, -8 ), Vector2( 0, -8 ), Vector2( -6, -8 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../sound/misc:play/play")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "ban" ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/arm:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3, -9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/arm:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body:region_rect")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Rect2( 4, 32, 15, 32 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ), Vector2( -6, -8 ), Vector2( 0, -8 ), Vector2( -6, -8 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../sound/misc:play/play")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "ban" ]
+}
+
+[sub_resource type="Animation" id=9]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/arm:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, -9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/arm:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body:region_rect")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Rect2( 4, 0, 15, 32 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ), Vector2( -6, -8 ), Vector2( 0, -8 ), Vector2( -6, -8 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../sound/misc:play/play")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "ban" ]
+}
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 3703.22 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 34.6667, 10 )
+
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 140 )
+
+[sub_resource type="RectangleShape2D" id=14]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=15]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=16]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=17]
+
+resource/name = "close"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 2,
+"values": [ Vector2( 200.339, 101.533 ), Vector2( 180, 125 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 202.5, 101 ), Vector2( 170, 125 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CollisionShape2D:transform/rot")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 90.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:region_rect")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0, 0, 50, 32 ), Rect2( 55, 0, 10, 32 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../../sound/misc:play/play")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0.1 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "door_close" ]
+}
+
+[sub_resource type="Animation" id=18]
+
+resource/name = "open"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 180, 125 ), Vector2( 200.339, 101.533 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 170, 125 ), Vector2( 202.5, 101 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CollisionShape2D:transform/rot")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 90.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:region_rect")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 55, 0, 10, 32 ), Rect2( 0, 0, 50, 32 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../../sound/misc:play/play")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0.1 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "door_open" ]
+}
+
+[sub_resource type="StyleBoxFlat" id=19]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.914063, 0.0714111, 0.0714111, 1 )
+light_color = Color( 0.945313, 0.103394, 0.103394, 1 )
+dark_color = Color( 0.933594, 0.0911713, 0.0911713, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=20]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.894531, 0.863001, 0.0873566, 1 )
+light_color = Color( 0.925781, 0.912333, 0.065094, 1 )
+dark_color = Color( 0.743001, 0.929688, 0.0762634, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="SampleLibrary" id=21]
+
+samples/atk = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 48 )
+}
+samples/ban = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 49 )
+}
+samples/buy = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 50 )
+}
+samples/def = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 51 )
+}
+samples/door_close = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 52 )
+}
+samples/door_open = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 53 )
+}
+"samples/drink water" = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 54 )
+}
+"samples/hurt monster" = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 55 )
+}
+samples/hurt0 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 56 )
+}
+samples/hurt1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 57 )
+}
+"samples/kill monster money" = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 58 )
+}
+samples/lv_up = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 59 )
+}
+samples/move = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 60 )
+}
+"samples/open shop" = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 61 )
+}
+samples/run = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 60 )
+}
+samples/uhurt0 = {
+"db": -1.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 62 )
+}
+samples/uhurt1 = {
+"db": -1.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 63 )
+}
+samples/water = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 64 )
+}
+
+[node name="Node2D" type="Node2D"]
+
+transform/pos = Vector2( 0, 20 )
+transform/scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="move" type="Node2D" parent="."]
+
+transform/pos = Vector2( 5, -25 )
+z/z = 10
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="move" type="Sprite" parent="move"]
+
+visibility/opacity = 0.68
+transform/pos = Vector2( 75.625, 239.375 )
+transform/scale = Vector2( 0.7875, 0.7875 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="left" type="Area2D" parent="move/move"]
+
+editor/display_folded = true
+transform/pos = Vector2( -13.4921, 13.4921 )
+transform/scale = Vector2( 1.26984, 1.26984 )
+z/relative = false
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.3177, 0, 0, 1.07497, -15, -10 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move/move/left"]
+
+transform/pos = Vector2( -15, -10 )
+transform/scale = Vector2( 1.3177, 1.07497 )
+z/z = 10
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="right" type="Area2D" parent="move/move"]
+
+editor/display_folded = true
+transform/pos = Vector2( -13.4921, 13.4921 )
+transform/scale = Vector2( 1.26984, 1.26984 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.3038, 0, 0, 1.04029, 35, -10 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move/move/right"]
+
+transform/pos = Vector2( 35, -10 )
+transform/scale = Vector2( 1.3038, 1.04029 )
+z/z = 10
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="up" type="Area2D" parent="move/move"]
+
+transform/pos = Vector2( -13.4921, 13.4921 )
+transform/scale = Vector2( 1.26984, 1.26984 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.04029, 0, 0, 1.28545, 10, -35.0001 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move/move/up"]
+
+transform/pos = Vector2( 10, -35.0001 )
+transform/scale = Vector2( 1.04029, 1.28545 )
+z/z = 10
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="down" type="Area2D" parent="move/move"]
+
+editor/display_folded = true
+transform/pos = Vector2( -13.4921, 13.4921 )
+transform/scale = Vector2( 1.26984, 1.26984 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.04029, 0, 0, 1.27496, 10, 15 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move/move/down"]
+
+transform/pos = Vector2( 10, 15 )
+transform/scale = Vector2( 1.04029, 1.27496 )
+z/z = 10
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="hurt" type="TouchScreenButton" parent="move"]
+
+visibility/opacity = 0.68
+transform/pos = Vector2( 275, 200 )
+transform/scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 3 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="shift" type="TouchScreenButton" parent="move"]
+
+transform/pos = Vector2( 420, 245 )
+transform/scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="i" type="TouchScreenButton" parent="move"]
+
+transform/pos = Vector2( 365, 250 )
+transform/scale = Vector2( 0.4, 0.4 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="monsters" type="Node2D" parent="." groups=[
+"load",
+"save",
+"monsters",
+]]
+
+editor/display_folded = true
+z/z = 9
+script/script = ExtResource( 8 )
+
+[node name="time" type="Timer" parent="monsters"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="area" type="Area2D" parent="monsters"]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 3.32813, 0, 0, 12.9471, 335, 125 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="monsters/area"]
+
+visibility/visible = false
+transform/pos = Vector2( 335, 125 )
+transform/scale = Vector2( 3.32813, 12.9471 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="boss" type="Node2D" parent="." groups=[
+"load",
+"save",
+"boss",
+]]
+
+editor/display_folded = true
+script/script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Timer" parent="boss"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="player" type="KinematicBody2D" parent="." groups=[
+"load",
+"save",
+"player",
+]]
+
+transform/pos = Vector2( 245, 145 )
+transform/scale = Vector2( 0.30625, 0.30625 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1.17278, 0, 0, 3.19368, 0.653015, -6.8086 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.8
+script/script = ExtResource( 10 )
+
+[node name="body" type="Sprite" parent="player"]
+
+transform/pos = Vector2( -6, -8 )
+transform/scale = Vector2( 2.74612, 2.52041 )
+z/z = 2
+texture = ExtResource( 11 )
+region = true
+region_rect = Rect2( 4, 96, 15, 32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="arm" type="Sprite" parent="player/body"]
+
+transform/pos = Vector2( 5, -9 )
+transform/scale = Vector2( 0.351226, 0.58173 )
+texture = ExtResource( 12 )
+region = true
+region_rect = Rect2( 4, 96, 30, 32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+
+transform/pos = Vector2( 0.653015, -6.8086 )
+transform/scale = Vector2( 1.17278, 3.19368 )
+z/z = 2
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="area2d arm" type="Area2D" parent="player"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 0.414147, 0, 0, 1.5518, 0, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="collision arm" type="CollisionShape2D" parent="player/area2d arm"]
+
+transform/scale = Vector2( 0.414147, 1.5518 )
+z/z = 2
+shape = SubResource( 4 )
+trigger = true
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="move" type="AnimationPlayer" parent="player"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/player_move_down = ExtResource( 13 )
+anims/player_move_left = ExtResource( 14 )
+anims/player_move_right = ExtResource( 15 )
+anims/player_move_up = ExtResource( 16 )
+anims/player_run_down = ExtResource( 17 )
+anims/player_run_left = ExtResource( 18 )
+anims/player_run_right = SubResource( 5 )
+anims/player_run_up = ExtResource( 19 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="hurt" type="AnimationPlayer" parent="player"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/player_hurt_down = ExtResource( 20 )
+anims/player_hurt_left = ExtResource( 21 )
+anims/player_hurt_right = ExtResource( 22 )
+anims/player_hurt_up = ExtResource( 23 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="ban" type="AnimationPlayer" parent="player"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/player_ban_down = SubResource( 6 )
+anims/player_ban_left = SubResource( 7 )
+anims/player_ban_right = SubResource( 8 )
+anims/player_ban_up = SubResource( 9 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Timer" type="Timer" parent="player"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = true
+
+[node name="group_map1" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 24 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, -65530, 0, -65529, 0, -65528, 0, -65527, 0, -65526, 0, -65525, 0, -65524, 0, -65523, 0, -65522, 0, -65521, 0, -65520, 0, -65519, 0, -65518, 0, -65517, 0, -65516, 0, -65515, 0, -65514, 0, -65513, 0, -65512, 0, -65511, 0, -65510, 0, -65509, 0, -65508, 0, -65507, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 65536, 0, 65537, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 65542, 0, 65543, 0, 65544, 0, 65545, 0, 65546, 0, 65547, 0, 65548, 0, 65549, 0, 65550, 0, 65551, 0, 65552, 0, 65553, 0, 65554, 0, 65555, 0, 65556, 0, 65557, 0, 65558, 0, 65559, 0, 65560, 0, 65561, 0, 65562, 0, 65563, 0, 65564, 0, 65565, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0, 131078, 75, 131079, 0, 131080, 0, 131081, 0, 131082, 0, 131083, 0, 131084, 0, 131085, 0, 131086, 75, 131087, 0, 131088, 0, 131089, 0, 131090, 0, 131091, 0, 131092, 75, 131093, 0, 131094, 0, 131095, 0, 131096, 0, 131097, 0, 131098, 0, 131099, 0, 131100, 0, 131101, 0, 196608, 0, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 75, 196615, 0, 196616, 0, 196617, 0, 196618, 0, 196619, 0, 196620, 0, 196621, 0, 196622, 75, 196623, 0, 196624, 0, 196625, 0, 196626, 0, 196627, 0, 196628, 75, 196629, 0, 196630, 0, 196631, 0, 196632, 0, 196633, 0, 196634, 0, 196635, 0, 196636, 0, 196637, 0, 262144, 0, 262145, 0, 262146, 0, 262147, 0, 262148, 0, 262149, 0, 262150, 75, 262151, 0, 262152, 0, 262153, 0, 262154, 0, 262155, 0, 262156, 0, 262157, 0, 262158, 75, 262159, 0, 262160, 0, 262161, 0, 262162, 0, 262163, 0, 262164, 75, 262165, 0, 262166, 0, 262167, 0, 262168, 0, 262169, 0, 262170, 0, 262171, 0, 262172, 0, 262173, 0, 327680, 0, 327681, 0, 327682, 0, 327683, 0, 327684, 0, 327685, 0, 327686, 75, 327687, 0, 327688, 0, 327689, 0, 327690, 0, 327691, 0, 327692, 0, 327693, 0, 327694, 75, 327695, 0, 327696, 0, 327697, 0, 327698, 0, 327699, 0, 327700, 75, 327701, 0, 327702, 0, 327703, 0, 327704, 0, 327705, 0, 327706, 0, 327707, 0, 327708, 0, 327709, 0, 393216, 0, 393217, 0, 393218, 0, 393219, 0, 393220, 0, 393221, 0, 393222, 75, 393223, 0, 393224, 0, 393225, 0, 393226, 0, 393227, 0, 393228, 0, 393229, 0, 393230, 75, 393231, 0, 393232, 0, 393233, 0, 393234, 0, 393235, 0, 393236, 75, 393237, 0, 393238, 0, 393239, 0, 393240, 0, 393241, 0, 393242, 0, 393243, 0, 393244, 0, 393245, 0, 458752, 0, 458753, 0, 458754, 0, 458755, 0, 458756, 0, 458757, 0, 458758, 75, 458759, 0, 458760, 0, 458761, 0, 458762, 0, 458763, 0, 458764, 0, 458765, 0, 458766, 75, 458767, 0, 458768, 0, 458769, 0, 458770, 0, 458771, 0, 458772, 75, 458773, 0, 458774, 0, 458775, 0, 458776, 0, 458777, 0, 458778, 0, 458779, 0, 458780, 0, 458781, 0, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 75, 524295, 0, 524296, 0, 524297, 0, 524298, 0, 524299, 0, 524300, 0, 524301, 0, 524302, 75, 524303, 0, 524304, 0, 524305, 0, 524306, 0, 524307, 0, 524308, 75, 524309, 0, 524310, 0, 524311, 0, 524312, 0, 524313, 0, 524314, 0, 524315, 0, 524316, 0, 524317, 0, 589824, 0, 589825, 90, 589826, 90, 589827, 90, 589828, 90, 589829, 90, 589830, 164, 589831, 90, 589832, 90, 589833, 90, 589834, 90, 589835, 90, 589836, 90, 589837, 90, 589838, 164, 589839, 90, 589840, 90, 589841, 90, 589842, 90, 589843, 90, 589844, 164, 589845, 90, 589846, 90, 589847, 90, 589848, 0, 589849, 0, 589850, 0, 589851, 0, 589852, 0, 589853, 0, 655360, 0, 655361, 0, 655362, 0, 655363, 0, 655364, 0, 655365, 0, 655366, 75, 655367, 0, 655368, 0, 655369, 0, 655370, 0, 655371, 0, 655372, 0, 655373, 0, 655374, 75, 655375, 0, 655376, 0, 655377, 0, 655378, 0, 655379, 0, 655380, 75, 655381, 0, 655382, 0, 655383, 0, 655384, 0, 655385, 0, 655386, 0, 655387, 0, 655388, 0, 655389, 0, 720896, 0, 720897, 0, 720898, 0, 720899, 0, 720900, 0, 720901, 0, 720902, 75, 720903, 0, 720904, 0, 720905, 0, 720906, 0, 720907, 0, 720908, 0, 720909, 0, 720910, 75, 720911, 0, 720912, 0, 720913, 0, 720914, 0, 720915, 0, 720916, 75, 720917, 0, 720918, 0, 720919, 0, 720920, 0, 720921, 0, 720922, 0, 720923, 0, 720924, 0, 720925, 0, 786432, 0, 786433, 0, 786434, 0, 786435, 0, 786436, 0, 786437, 0, 786438, 75, 786439, 0, 786440, 0, 786441, 0, 786442, 0, 786443, 0, 786444, 0, 786445, 0, 786446, 75, 786447, 0, 786448, 0, 786449, 0, 786450, 0, 786451, 0, 786452, 75, 786453, 0, 786454, 0, 786455, 0, 786456, 0, 786457, 0, 786458, 0, 786459, 0, 786460, 0, 786461, 0, 851968, 0, 851969, 0, 851970, 0, 851971, 0, 851972, 0, 851973, 0, 851974, 75, 851975, 0, 851976, 0, 851977, 0, 851978, 0, 851979, 0, 851980, 0, 851981, 0, 851982, 75, 851983, 0, 851984, 0, 851985, 0, 851986, 0, 851987, 0, 851988, 75, 851989, 0, 851990, 0, 851991, 0, 851992, 0, 851993, 0, 851994, 0, 851995, 0, 851996, 0, 851997, 0, 917504, 0, 917505, 0, 917506, 0, 917507, 0, 917508, 0, 917509, 0, 917510, 75, 917511, 0, 917512, 0, 917513, 0, 917514, 0, 917515, 0, 917516, 0, 917517, 0, 917518, 75, 917519, 0, 917520, 0, 917521, 0, 917522, 0, 917523, 0, 917524, 75, 917525, 0, 917526, 0, 917527, 0, 917528, 0, 917529, 0, 917530, 0, 917531, 0, 917532, 0, 917533, 0, 983040, 0, 983041, 0, 983042, 0, 983043, 0, 983044, 0, 983045, 0, 983046, 75, 983047, 0, 983048, 0, 983049, 0, 983050, 0, 983051, 0, 983052, 0, 983053, 0, 983054, 75, 983055, 0, 983056, 0, 983057, 0, 983058, 0, 983059, 0, 983060, 75, 983061, 0, 983062, 0, 983063, 0, 983064, 0, 983065, 0, 983066, 0, 983067, 0, 983068, 0, 983069, 0, 1048576, 0, 1048581, 0, 1048582, 75, 1048583, 0, 1048584, 0, 1048585, 0, 1048586, 0, 1048587, 0, 1048588, 0, 1048589, 0, 1048590, 75, 1048591, 0, 1048592, 0, 1048593, 0, 1048594, 0, 1048595, 0, 1048596, 75, 1048597, 0, 1048598, 0, 1048599, 0, 1048600, 0, 1048601, 0, 1048602, 0, 1048603, 0, 1048604, 0, 1048605, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="group_map2" type="TileMap" parent="."]
+
+editor/display_folded = true
+z/z = 3
+mode = 0
+tile_set = ExtResource( 25 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 0, 1, 8, 2, 8, 3, 8, 4, 8, 5, 8, 6, 8, 7, 8, 8, 8, 9, 8, 10, 8, 11, 1, 65537, 9, 65538, 9, 65539, 9, 65540, 9, 65541, 9, 65542, 9, 65543, 9, 65544, 9, 65545, 9, 65546, 9, 131072, 1, 131083, 1, 262144, 1, 262155, 1, 327680, 8, 327681, 8, 327682, 8, 327685, 8, 327686, 8, 327687, 8, 327688, 8, 327689, 8, 327690, 8, 327691, 1, 393216, 9, 393217, 9, 393218, 9, 393221, 15, 393222, 15, 393223, 15, 393224, 15, 393225, 15, 393226, 15, 589824, 8, 589825, 8, 589826, 8, 589829, 8, 589830, 8, 589831, 8, 589832, 8, 589833, 8, 589834, 8, 589835, 1, 655360, 9, 655361, 9, 655362, 9, 655365, 9, 655366, 9, 655367, 9, 655368, 9, 655369, 9, 655370, 9, 655371, 1, 720896, 1, 720907, 1, 786432, 1, 786443, 1, 851968, 1, 851979, 1, 917515, 1, 983040, 8, 983041, 8, 983042, 8, 983043, 8, 983044, 8, 983045, 8, 983046, 8, 983047, 8, 983048, 8, 983049, 8, 983050, 8, 983051, 7, 1048576, 9, 1048577, 9, 1048578, 9, 1048579, 9, 1048580, 9, 1048581, 9, 1048582, 9, 1048583, 9, 1048584, 9, 1048585, 9, 1048586, 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="build_monster_shop" type="StaticBody2D" parent="group_map2"]
+
+transform/pos = Vector2( 20, 190 )
+transform/scale = Vector2( 0.5, 0.421875 )
+input/pickable = true
+shapes/0/shape = SubResource( 10 )
+shapes/0/transform = Matrix32( 0.76087, 0, 0, 0.00613026, 12, 8.29633 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sprite" type="Sprite" parent="group_map2/build_monster_shop"]
+
+transform/pos = Vector2( 12, -3.55554 )
+transform/scale = Vector2( 2, 2.37037 )
+texture = ExtResource( 26 )
+region = true
+region_rect = Rect2( 257, 177, 18, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="group_map2/build_monster_shop"]
+
+transform/pos = Vector2( 12, 8.29633 )
+transform/scale = Vector2( 0.76087, 0.00613026 )
+z/z = 1
+shape = SubResource( 10 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="property_shop" type="StaticBody2D" parent="group_map2"]
+
+transform/pos = Vector2( 25, 50 )
+transform/scale = Vector2( 0.5, 0.421875 )
+input/pickable = true
+shapes/0/shape = SubResource( 10 )
+shapes/0/transform = Matrix32( 0.869565, 0, 0, 0.00565643, 10, 11.8519 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sprite" type="Sprite" parent="group_map2/property_shop"]
+
+transform/pos = Vector2( 10, 0 )
+transform/scale = Vector2( 2, 2.37037 )
+texture = ExtResource( 26 )
+region = true
+region_rect = Rect2( 275, 177, 20, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="group_map2/property_shop"]
+
+transform/pos = Vector2( 10, 11.8519 )
+transform/scale = Vector2( 0.869565, 0.00565643 )
+z/z = 1
+shape = SubResource( 10 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="groceries_shop" type="StaticBody2D" parent="group_map2"]
+
+transform/pos = Vector2( 125, 50 )
+transform/scale = Vector2( 0.5, 0.421875 )
+input/pickable = true
+shapes/0/shape = SubResource( 10 )
+shapes/0/transform = Matrix32( 0.869565, 0, 0, 0.0060334, 10, 11.8519 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sprite" type="Sprite" parent="group_map2/groceries_shop"]
+
+transform/pos = Vector2( 10, 0 )
+transform/scale = Vector2( 2, 2.37037 )
+texture = ExtResource( 26 )
+region = true
+region_rect = Rect2( 296, 177, 20, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="group_map2/groceries_shop"]
+
+transform/pos = Vector2( 10, 11.8519 )
+transform/scale = Vector2( 0.869565, 0.0060334 )
+z/z = 1
+shape = SubResource( 10 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="wall" type="StaticBody2D" parent="group_map2"]
+
+editor/display_folded = true
+transform/pos = Vector2( 185, 95 )
+input/pickable = false
+shapes/0/shape = SubResource( 11 )
+shapes/0/transform = Matrix32( 0.25, 0, 0, 2.30769, -5, -5 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 12 )
+shapes/1/transform = Matrix32( 6.94732, 0, 0, 0.5625, 50, -115 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 12 )
+shapes/2/transform = Matrix32( 6.94732, 0, 0, 0.5625, 55, 165 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 13 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1.04196, 300, 30 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 14 )
+shapes/4/transform = Matrix32( 0.307692, 0, 0, 1, -184, -100 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 15 )
+shapes/5/transform = Matrix32( 0.307692, 0, 0, 2.61538, -185, 30 )
+shapes/5/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="group_map2/wall"]
+
+transform/pos = Vector2( -5, -5 )
+transform/scale = Vector2( 0.25, 2.30769 )
+shape = SubResource( 11 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D 2" type="CollisionShape2D" parent="group_map2/wall"]
+
+transform/pos = Vector2( 50, -115 )
+transform/scale = Vector2( 6.94732, 0.5625 )
+shape = SubResource( 12 )
+trigger = false
+_update_shape_index = 1
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="group_map2/wall"]
+
+transform/pos = Vector2( 55, 165 )
+transform/scale = Vector2( 6.94732, 0.5625 )
+shape = SubResource( 12 )
+trigger = false
+_update_shape_index = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D 3" type="CollisionShape2D" parent="group_map2/wall"]
+
+transform/pos = Vector2( 300, 30 )
+transform/scale = Vector2( 1, 1.04196 )
+shape = SubResource( 13 )
+trigger = false
+_update_shape_index = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D 4" type="CollisionShape2D" parent="group_map2/wall"]
+
+transform/pos = Vector2( -184, -100 )
+transform/scale = Vector2( 0.307692, 1 )
+shape = SubResource( 14 )
+trigger = false
+_update_shape_index = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D 5" type="CollisionShape2D" parent="group_map2/wall"]
+
+transform/pos = Vector2( -185, 30 )
+transform/scale = Vector2( 0.307692, 2.61538 )
+shape = SubResource( 15 )
+trigger = false
+_update_shape_index = 5
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="door" type="StaticBody2D" parent="group_map2" groups=[
+"door",
+]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 16 )
+shapes/0/transform = Matrix32( -3.36241e-08, -0.76923, 2.5, -1.09278e-07, 202.5, 105 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 27 )
+
+[node name="door" type="Sprite" parent="group_map2/door"]
+
+transform/pos = Vector2( 200.339, 101.533 )
+transform/scale = Vector2( 1.11719, 0.96875 )
+texture = ExtResource( 28 )
+region = true
+region_rect = Rect2( 0, 0, 50, 32 )
+
+[node name="door ani" type="AnimationPlayer" parent="group_map2/door/door"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/close = SubResource( 17 )
+anims/open = SubResource( 18 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="group_map2/door"]
+
+transform/pos = Vector2( 202.5, 105 )
+transform/rot = 90.0
+transform/scale = Vector2( 0.76923, 2.5 )
+shape = SubResource( 16 )
+trigger = false
+_update_shape_index = 0
+
+[node name="information" type="Node2D" parent="." groups=[
+"information",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 0, -10 )
+z/z = 7
+script/script = ExtResource( 29 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hp" type="Node2D" parent="information"]
+
+editor/display_folded = true
+z/z = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hp text" type="Label" parent="information/hp"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 125.0
+margin/top = 20.0
+margin/right = 165.0
+margin/bottom = 40.0
+custom_fonts/font = ExtResource( 30 )
+text = "hp:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hp" type="Label" parent="information/hp"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 155.0
+margin/top = 20.0
+margin/right = 225.0
+margin/bottom = 40.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "0/0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hp bar" type="ProgressBar" parent="information/hp"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 115.0
+margin/top = 0.0
+margin/right = 225.0
+margin/bottom = 20.0
+custom_styles/fg = SubResource( 19 )
+custom_fonts/font = ExtResource( 30 )
+range/min = 0.0
+range/max = 23.0
+range/step = 1.0
+range/page = 0.0
+range/value = 8.0
+range/exp_edit = false
+range/rounded = false
+percent/visible = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="exp" type="Node2D" parent="information"]
+
+editor/display_folded = true
+z/z = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="exp text" type="Label" parent="information/exp"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 125.0
+margin/top = 60.0
+margin/right = 165.0
+margin/bottom = 80.0
+custom_fonts/font = ExtResource( 30 )
+text = "exp:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="exp" type="Label" parent="information/exp"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 155.0
+margin/top = 60.0
+margin/right = 225.0
+margin/bottom = 80.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "0/0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="exp bar" type="ProgressBar" parent="information/exp"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 115.0
+margin/top = 40.0
+margin/right = 225.0
+margin/bottom = 60.0
+custom_styles/fg = SubResource( 20 )
+custom_fonts/font = ExtResource( 30 )
+range/min = 0.0
+range/max = 23.0
+range/step = 1.0
+range/page = 0.0
+range/value = 8.0
+range/exp_edit = false
+range/rounded = false
+percent/visible = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="player information" type="Panel" parent="information"]
+
+editor/display_folded = true
+visibility/blend_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -20.0
+margin/right = 115.0
+margin/bottom = 180.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="name" type="Label" parent="information/player information"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 20.0
+margin/right = 70.0
+margin/bottom = 40.0
+custom_fonts/font = ExtResource( 30 )
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="information/player information/name"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 0.0
+margin/right = 100.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 30 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="lv" type="Label" parent="information/player information"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 40.0
+margin/right = 48.0
+margin/bottom = 60.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "lv"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="information/player information/lv"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 55.0
+margin/top = 0.0
+margin/right = 103.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="atk" type="Label" parent="information/player information"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 60.0
+margin/right = 48.0
+margin/bottom = 80.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "atk"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="information/player information/atk"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 55.0
+margin/top = 0.0
+margin/right = 103.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="def" type="Label" parent="information/player information"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 80.0
+margin/right = 48.0
+margin/bottom = 100.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "def"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="information/player information/def"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 55.0
+margin/top = 0.0
+margin/right = 103.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="expe" type="Label" parent="information/player information"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 100.0
+margin/right = 79.0
+margin/bottom = 120.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "next"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="information/player information/expe"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 55.0
+margin/top = 0.0
+margin/right = 103.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="expe_current" type="Label" parent="information/player information"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 120.0
+margin/right = 48.0
+margin/bottom = 140.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "expe"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="information/player information/expe_current"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 55.0
+margin/top = 0.0
+margin/right = 103.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="money" type="Label" parent="information/player information"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 140.0
+margin/right = 74.0
+margin/bottom = 160.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "money"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="information/player information/money"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 55.0
+margin/top = 0.0
+margin/right = 103.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="num monster" type="Label" parent="information/player information"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 160.0
+margin/right = 129.0
+margin/bottom = 180.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+text = "num"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="information/player information/num monster"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 55.0
+margin/top = 0.0
+margin/right = 103.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color_shadow = Color( 0.378906, 0.344864, 0.344864, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="msg" type="Panel" parent="information"]
+
+editor/display_folded = true
+visibility/blend_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 310.0
+margin/top = 0.0
+margin/right = 480.0
+margin/bottom = 135.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="RichTextLabel" parent="information/msg"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 350.0
+margin/bottom = 270.0
+custom_fonts/normal_font = ExtResource( 30 )
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+percent_visible = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="clear" type="Button" parent="information/msg"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 115.0
+margin/top = 135.0
+margin/right = 172.0
+margin/bottom = 158.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "clear"
+flat = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="option button" type="Node2D" parent="." groups=[
+"option button",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 80, 0 )
+z/z = 8
+script/script = ExtResource( 31 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="start night" type="Button" parent="option button"]
+
+rect/rotation = 0.484964
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 150.0
+margin/top = -10.0
+margin/right = 230.0
+margin/bottom = 15.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "第一夜"
+flat = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="auto monster" type="Button" parent="option button"]
+
+anchor/left = 1
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -226.0
+margin/top = 175.0
+margin/right = -338.0
+margin/bottom = 198.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "auto monster"
+flat = false
+clip_text = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="auto act" type="Button" parent="option button"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 290.0
+margin/top = 150.0
+margin/right = 400.0
+margin/bottom = 173.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "auto hurt"
+flat = false
+clip_text = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shop list" type="Node2D" parent="." groups=[
+"shop",
+]]
+
+editor/display_folded = true
+z/z = 9
+script/script = ExtResource( 32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="build_monster_shop" type="ColorFrame" parent="shop list"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 115.0
+margin/top = 15.0
+margin/right = 320.0
+margin/bottom = 50.0
+color = Color( 0.832031, 0.832031, 0.832031, 1 )
+script/script = ExtResource( 33 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="list" type="ItemList" parent="shop list/build_monster_shop"]
+
+process/pause_mode = 2
+hint/tooltip = "aaaaa"
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 35.0
+margin/right = 195.0
+margin/bottom = 195.0
+custom_fonts/font = ExtResource( 30 )
+
+[node name="money" type="ItemList" parent="shop list/build_monster_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 195.0
+margin/top = 35.0
+margin/right = 275.0
+margin/bottom = 195.0
+custom_fonts/font = ExtResource( 30 )
+
+[node name="Label" type="Label" parent="shop list/build_monster_shop"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 40.0
+margin/top = 10.0
+margin/right = 159.0
+margin/bottom = 27.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "build monster"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="option" type="Panel" parent="shop list/build_monster_shop"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 195.0
+margin/right = 195.0
+margin/bottom = 235.0
+
+[node name="sure" type="Button" parent="shop list/build_monster_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 200.0
+margin/right = 90.0
+margin/bottom = 230.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "sure"
+flat = false
+
+[node name="close" type="Button" parent="shop list/build_monster_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 200.0
+margin/right = 175.0
+margin/bottom = 230.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "close"
+flat = false
+
+[node name="property_shop" type="ColorFrame" parent="shop list"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 115.0
+margin/top = 15.0
+margin/right = 320.0
+margin/bottom = 50.0
+color = Color( 0.832031, 0.832031, 0.832031, 1 )
+script/script = ExtResource( 34 )
+
+[node name="list" type="ItemList" parent="shop list/property_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 35.0
+margin/right = 195.0
+margin/bottom = 195.0
+custom_fonts/font = ExtResource( 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="money" type="ItemList" parent="shop list/property_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 195.0
+margin/top = 35.0
+margin/right = 275.0
+margin/bottom = 195.0
+custom_fonts/font = ExtResource( 30 )
+
+[node name="Label" type="Label" parent="shop list/property_shop"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 40.0
+margin/top = 10.0
+margin/right = 162.0
+margin/bottom = 27.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "property shop"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="option" type="Panel" parent="shop list/property_shop"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 195.0
+margin/right = 195.0
+margin/bottom = 235.0
+
+[node name="sure" type="Button" parent="shop list/property_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 200.0
+margin/right = 90.0
+margin/bottom = 230.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "buy"
+flat = false
+
+[node name="close" type="Button" parent="shop list/property_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 200.0
+margin/right = 175.0
+margin/bottom = 230.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "close"
+flat = false
+
+[node name="groceries_shop" type="ColorFrame" parent="shop list"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 115.0
+margin/top = 15.0
+margin/right = 320.0
+margin/bottom = 50.0
+color = Color( 0.832031, 0.832031, 0.832031, 1 )
+script/script = ExtResource( 35 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="list" type="ItemList" parent="shop list/groceries_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 35.0
+margin/right = 195.0
+margin/bottom = 195.0
+custom_fonts/font = ExtResource( 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="money" type="ItemList" parent="shop list/groceries_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 195.0
+margin/top = 35.0
+margin/right = 275.0
+margin/bottom = 195.0
+custom_fonts/font = ExtResource( 30 )
+
+[node name="Label" type="Label" parent="shop list/groceries_shop"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 40.0
+margin/top = 10.0
+margin/right = 159.0
+margin/bottom = 27.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "groceries shop"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="option" type="Panel" parent="shop list/groceries_shop"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 195.0
+margin/right = 195.0
+margin/bottom = 235.0
+
+[node name="sure" type="Button" parent="shop list/groceries_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 200.0
+margin/right = 90.0
+margin/bottom = 230.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "buy"
+flat = false
+
+[node name="close" type="Button" parent="shop list/groceries_shop"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 200.0
+margin/right = 175.0
+margin/bottom = 230.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "close"
+flat = false
+
+[node name="kill boss" type="Node2D" parent="."]
+
+process/pause_mode = 2
+editor/display_folded = true
+transform/pos = Vector2( 30, -15 )
+z/z = 9
+script/script = ExtResource( 36 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="window" type="Panel" parent="kill boss"]
+
+process/pause_mode = 2
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 75.0
+margin/top = 50.0
+margin/right = 340.0
+margin/bottom = 255.0
+
+[node name="text" type="Label" parent="kill boss/window"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 15.0
+margin/right = 245.0
+margin/bottom = 152.0
+custom_fonts/font = ExtResource( 30 )
+text = "you kill slime boss"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="text1" type="Label" parent="kill boss/window"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 35.0
+margin/right = 245.0
+margin/bottom = 172.0
+custom_fonts/font = ExtResource( 30 )
+text = "this area to rule you"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text2" type="Label" parent="kill boss/window"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 55.0
+margin/right = 245.0
+margin/bottom = 192.0
+custom_fonts/font = ExtResource( 30 )
+text = "you can keep playing"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text3" type="Label" parent="kill boss/window"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 15.0
+margin/top = 75.0
+margin/right = 240.0
+margin/bottom = 212.0
+custom_fonts/font = ExtResource( 30 )
+text = "can also add group"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text4" type="Label" parent="kill boss/window"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 15.0
+margin/top = 95.0
+margin/right = 240.0
+margin/bottom = 232.0
+custom_fonts/font = ExtResource( 30 )
+text = "start page is detailed"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text5" type="Label" parent="kill boss/window"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 15.0
+margin/top = 115.0
+margin/right = 240.0
+margin/bottom = 252.0
+custom_fonts/font = ExtResource( 30 )
+text = "thank you for playing"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="close" type="Button" parent="kill boss/window"]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 47.5
+margin/top = -57.5
+margin/right = -32.5
+margin/bottom = -82.5
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "sure"
+flat = false
+
+[node name="pop windows" type="Node2D" parent="." groups=[
+"pop windows",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 30, -15 )
+z/z = 9
+script/script = ExtResource( 37 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="boss" type="Panel" parent="pop windows"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 75.0
+margin/top = 50.0
+margin/right = 340.0
+margin/bottom = 255.0
+
+[node name="sure" type="Button" parent="pop windows/boss"]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 107.5
+margin/top = 160.0
+margin/right = 15.5
+margin/bottom = 185.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "be prepared"
+flat = false
+
+[node name="close" type="Button" parent="pop windows/boss"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 150.0
+margin/top = 160.0
+margin/right = 242.0
+margin/bottom = 185.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "consider again"
+flat = false
+
+[node name="Label" type="Label" parent="pop windows/boss"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 25.0
+margin/top = 20.0
+margin/right = 230.0
+margin/bottom = 50.0
+custom_fonts/font = ExtResource( 30 )
+text = "是否要挑战boss"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="pop windows/boss"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 25.0
+margin/top = 40.0
+margin/right = 275.0
+margin/bottom = 70.0
+custom_fonts/font = ExtResource( 30 )
+text = "一但挑战无法取消"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="pop windows/boss"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 25.0
+margin/top = 60.0
+margin/right = 230.0
+margin/bottom = 90.0
+custom_fonts/font = ExtResource( 30 )
+text = "请备留一些金钱"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="pop windows/boss"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 25.0
+margin/top = 80.0
+margin/right = 230.0
+margin/bottom = 110.0
+custom_fonts/font = ExtResource( 30 )
+text = "以防死档"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="pass night" type="Panel" parent="pop windows"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 75.0
+margin/top = 50.0
+margin/right = 340.0
+margin/bottom = 255.0
+
+[node name="close" type="Button" parent="pop windows/pass night"]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 42.5
+margin/top = 160.0
+margin/right = -49.5
+margin/bottom = 185.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "sure"
+flat = false
+
+[node name="text" type="Label" parent="pop windows/pass night"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 15.0
+margin/right = 240.0
+margin/bottom = 150.0
+custom_fonts/font = ExtResource( 30 )
+text = "passed"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="start night" type="Panel" parent="pop windows"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 75.0
+margin/top = 50.0
+margin/right = 340.0
+margin/bottom = 255.0
+
+[node name="sure" type="Button" parent="pop windows/start night"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 160.0
+margin/right = 117.0
+margin/bottom = 185.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "be prepared"
+flat = false
+clip_text = true
+
+[node name="close" type="Button" parent="pop windows/start night"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 140.0
+margin/top = 160.0
+margin/right = 232.0
+margin/bottom = 185.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "consider again"
+flat = false
+clip_text = true
+
+[node name="text" type="Label" parent="pop windows/start night"]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 107.5
+margin/top = 15.0
+margin/right = -107.5
+margin/bottom = 150.0
+custom_fonts/font = ExtResource( 30 )
+text = "whether to start the"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="build_monsters_area" type="Area2D" parent="." groups=[
+"load",
+"save",
+"build_monster",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 125, 210 )
+transform/scale = Vector2( 1.64063, 1.01563 )
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 38 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Timer" parent="build_monsters_area"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="set" type="Node2D" parent="." groups=[
+"set",
+]]
+
+process/pause_mode = 2
+z/z = 10
+script/script = ExtResource( 39 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="set" type="Panel" parent="set"]
+
+process/pause_mode = 2
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -10.0
+margin/right = 480.0
+margin/bottom = 260.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sound bg" type="Control" parent="set/set"]
+
+process/pause_mode = 2
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 30.0
+margin/top = -35.0
+margin/right = 70.0
+margin/bottom = 5.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="set/set/sound bg"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 65.0
+margin/top = 100.0
+margin/right = 150.0
+margin/bottom = 125.0
+custom_fonts/font = ExtResource( 30 )
+text = "music"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="scroll bar" type="HScrollBar" parent="set/set/sound bg"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 165.0
+margin/top = 105.0
+margin/right = 250.0
+margin/bottom = 120.0
+range/min = 0.0
+range/max = 100.0
+range/step = 0.0
+range/page = 0.0
+range/value = 1.0
+range/exp_edit = false
+range/rounded = false
+custom_step = -1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="edit" type="LineEdit" parent="set/set/sound bg"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 255.0
+margin/top = 100.0
+margin/right = 313.0
+margin/bottom = 124.0
+text = "50"
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sound effect" type="Control" parent="set/set"]
+
+process/pause_mode = 2
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 30.0
+margin/top = -10.0
+margin/right = 70.0
+margin/bottom = 30.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Label" parent="set/set/sound effect"]
+
+anchor/left = 1
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -10.0
+margin/top = 100.0
+margin/right = -124.0
+margin/bottom = 125.0
+custom_fonts/font = ExtResource( 30 )
+text = "music effect"
+align = 1
+valign = 1
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="scroll bar" type="HScrollBar" parent="set/set/sound effect"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 165.0
+margin/top = 105.0
+margin/right = 250.0
+margin/bottom = 120.0
+range/min = 0.0
+range/max = 100.0
+range/step = 0.0
+range/page = 0.0
+range/value = 1.0
+range/exp_edit = false
+range/rounded = false
+custom_step = -1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="edit" type="LineEdit" parent="set/set/sound effect"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 255.0
+margin/top = 100.0
+margin/right = 313.0
+margin/bottom = 124.0
+text = "50"
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="save" type="Button" parent="set/set"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 150.0
+margin/top = 10.0
+margin/right = 215.0
+margin/bottom = 33.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "app"
+flat = false
+clip_text = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="close" type="Button" parent="set/set"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 250.0
+margin/top = 10.0
+margin/right = 315.0
+margin/bottom = 33.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "close"
+flat = false
+clip_text = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="return" type="Button" parent="set/set"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 165.0
+margin/top = 225.0
+margin/right = 289.0
+margin/bottom = 248.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "exit to start"
+flat = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="save 2" type="Button" parent="set/set" groups=[
+"save_control",
+]]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 165.0
+margin/top = 190.0
+margin/right = 290.0
+margin/bottom = 213.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "save"
+flat = false
+script/script = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="list" type="Panel" parent="set/set/save 2"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -125.0
+margin/top = -180.0
+margin/right = 260.0
+margin/bottom = 30.0
+
+[node name="sure" type="Button" parent="set/set/save 2/list"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 35.0
+margin/top = 175.0
+margin/right = 110.0
+margin/bottom = 198.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "cover"
+flat = false
+
+[node name="close" type="Button" parent="set/set/save 2/list"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 245.0
+margin/top = 175.0
+margin/right = 324.0
+margin/bottom = 198.0
+custom_fonts/font = ExtResource( 30 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "cancel"
+flat = false
+
+[node name="list" type="ItemList" parent="set/set/save 2/list"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 385.0
+margin/bottom = 165.0
+custom_fonts/font = ExtResource( 30 )
+custom_constants/line_separation = 0
+custom_constants/icon_margin = 0
+
+[node name="set_control" type="Node2D" parent="."]
+
+process/pause_mode = 2
+editor/display_folded = true
+z/z = 10
+script/script = ExtResource( 41 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="esc" type="TouchScreenButton" parent="set_control"]
+
+transform/pos = Vector2( 445, -15 )
+transform/scale = Vector2( 0.4, 0.4 )
+normal = ExtResource( 42 )
+pressed = ExtResource( 43 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="sound" type="Node2D" parent="." groups=[
+"sound",
+]]
+
+process/pause_mode = 2
+editor/display_folded = true
+script/script = ExtResource( 44 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="bg" type="StreamPlayer" parent="sound"]
+
+process/pause_mode = 2
+stream/stream = ExtResource( 45 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="shop" type="StreamPlayer" parent="sound"]
+
+process/pause_mode = 2
+stream/stream = ExtResource( 46 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="boss" type="StreamPlayer" parent="sound"]
+
+process/pause_mode = 2
+stream/stream = ExtResource( 47 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="misc" type="SamplePlayer" parent="sound"]
+
+process/pause_mode = 2
+config/polyphony = 5
+config/samples = SubResource( 21 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+
+[node name="light" type="Light2D" parent="sound" groups=[
+"light",
+]]
+
+transform/pos = Vector2( 255, 120 )
+transform/scale = Vector2( 6.9, 4.89225 )
+enabled = false
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+script/script = ExtResource( 65 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="timeout" from="boss/Timer" to="boss" method="_on_timeout_1"]
+
+[connection signal="input_event" from="player" to="player" method="input_event"]
+
+[connection signal="input_event" from="player" to="player" method="_on_KinematicBody2D_input_event"]
+
+[connection signal="input_event" from="player" to="player/move" method="input_event"]
+
+[connection signal="input_event" from="player" to="player/move" method="start_ani"]
+
+[connection signal="mouse_enter" from="player" to="player" method="input_event"]
+
+[connection signal="body_enter" from="player/area2d arm" to="shop list" method="_on_init_shop"]
+
+[connection signal="body_enter" from="player/area2d arm" to="player" method="_on_hunt_monsters"]
+
+[connection signal="finished" from="player/hurt" to="player" method="_on_finished_hunt_ani"]
+
+[connection signal="timeout" from="player/Timer" to="player" method="_on_timeout_10"]
+
+[connection signal="input_event" from="group_map2/build_monster_shop" to="shop list" method="_on_build_monster_shop_input_event" flags=7]
+
+[connection signal="input_event" from="group_map2/build_monster_shop" to="shop list" method="_on_build_monster_shop"]
+
+[connection signal="mouse_enter" from="group_map2/build_monster_shop" to="shop list" method="_on_build_monster_shop_mouse_enter"]
+
+[connection signal="mouse_exit" from="group_map2/build_monster_shop" to="shop list" method="_on_build_monster_shop_mouse_exit"]
+
+[connection signal="mouse_enter" from="group_map2/property_shop" to="shop list" method="_on_property_shop_mouse_enter"]
+
+[connection signal="mouse_enter" from="group_map2/property_shop" to="shop list/property_shop" method="_on_property_shop_mouse_enter"]
+
+[connection signal="mouse_exit" from="group_map2/property_shop" to="shop list" method="_on_property_shop_mouse_exit"]
+
+[connection signal="mouse_enter" from="group_map2/groceries_shop" to="shop list" method="_on_groceries_shop_mouse_enter"]
+
+[connection signal="mouse_exit" from="group_map2/groceries_shop" to="shop list" method="_on_groceries_shop_mouse_exit"]
+
+[connection signal="pressed" from="information/msg/clear" to="information" method="_on_msg_clear"]
+
+[connection signal="pressed" from="option button/auto monster" to="build_monsters_area" method="_on_auto_monster"]
+
+[connection signal="pressed" from="option button/auto act" to="player" method="_on_auto_act"]
+
+[connection signal="item_selected" from="shop list/build_monster_shop/list" to="shop list/build_monster_shop" method="_on_select"]
+
+[connection signal="pressed" from="shop list/build_monster_shop/sure" to="shop list/build_monster_shop" method="_on_buy"]
+
+[connection signal="pressed" from="shop list/build_monster_shop/close" to="shop list/build_monster_shop" method="_on_close"]
+
+[connection signal="item_selected" from="shop list/property_shop/list" to="shop list/property_shop" method="_on_select"]
+
+[connection signal="pressed" from="shop list/property_shop/sure" to="shop list/property_shop" method="_on_buy"]
+
+[connection signal="pressed" from="shop list/property_shop/close" to="shop list/property_shop" method="_on_close"]
+
+[connection signal="item_selected" from="shop list/groceries_shop/list" to="shop list/groceries_shop" method="_on_select"]
+
+[connection signal="pressed" from="shop list/groceries_shop/sure" to="shop list/groceries_shop" method="_on_buy"]
+
+[connection signal="pressed" from="shop list/groceries_shop/close" to="shop list/groceries_shop" method="_on_close"]
+
+[connection signal="pressed" from="pop windows/boss/sure" to="boss" method="_on_sure"]
+
+[connection signal="pressed" from="pop windows/boss/close" to="boss" method="_on_close"]
+
+[connection signal="timeout" from="build_monsters_area/Timer" to="build_monsters_area" method="_on_timeout_1"]
+
+[connection signal="pressed" from="set/set/return" to="set" method="_on_goto_start"]
+
+[connection signal="pressed" from="set/set/save 2" to="set/set/save 2" method="_on_save"]
+
+[connection signal="pressed" from="set/set/save 2/list/sure" to="set/set/save 2" method="_on_save_sure"]
+
+[connection signal="pressed" from="set/set/save 2/list/close" to="set/set/save 2" method="_on_save_close"]
+
+[connection signal="item_selected" from="set/set/save 2/list/list" to="set/set/save 2" method="_on_save_select"]
+
+
